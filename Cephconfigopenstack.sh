@@ -16,10 +16,10 @@ ceph auth get-or-create client.cinder mon 'profile rbd' osd 'profile rbd pool=vo
 ceph auth get-or-create client.cinder-backup mon 'profile rbd' osd 'profile rbd pool=backups' mgr 'profile rbd pool=backups'
 
 ssh-copy-id root@$DeploymentIP
-scp -r /etc/ceph/ceph.conf root@$DeploymentIP:/etc/kolla/config/cinder/cinder-backup/ceph.conf
-scp -r /etc/ceph/ceph.conf root@$DeploymentIP:/etc/kolla/config/cinder/cinder-volume/ceph.conf
-scp -r /etc/ceph/ceph.conf root@$DeploymentIP:/etc/kolla/config/glance/ceph.conf
-scp -r /etc/ceph/ceph.conf root@$DeploymentIP:/etc/kolla/config/nova/ceph.conf
+scp -r /etc/ceph/ceph.conf root@172.16.200.26:/etc/kolla/config/cinder/cinder-backup/ceph.conf
+scp -r /etc/ceph/ceph.conf root@172.16.200.26:/etc/kolla/config/cinder/cinder-volume/ceph.conf
+scp -r /etc/ceph/ceph.conf root@172.16.200.26:/etc/kolla/config/glance/ceph.conf
+scp -r /etc/ceph/ceph.conf root@172.16.200.26:/etc/kolla/config/nova/ceph.conf
 
 ceph auth get-or-create client.cinder-backup  > /etc/ceph/ceph.client.cinder-backup.keyring
 ceph auth get-or-create client.cinder > /etc/ceph/ceph.client.cinder.keyring
@@ -27,11 +27,11 @@ ceph auth get-or-create client.glance > /etc/ceph/ceph.client.glance.keyring
 
 
 
-scp -r /etc/ceph/ceph.client.glance.keyring root@$DeploymentIP:/etc/kolla/config/glance/ceph.client.glance.keyring
-scp -r /etc/ceph/ceph.client.cinder-backup.keyring  root@$DeploymentIP:/etc/kolla/config/cinder/cinder-backup/ceph.client.cinder-backup.keyring 
-scp -r /etc/ceph/ceph.client.cinder.keyring  root@$DeploymentIP:/etc/kolla/config/cinder/cinder-backup/ceph.client.cinder.keyring
-scp -r /etc/ceph/ceph.client.cinder.keyring  root@$DeploymentIP:/etc/kolla/config/cinder/cinder-volume/ceph.client.cinder.keyring
-scp -r /etc/ceph/ceph.client.cinder.keyring  root@$DeploymentIP:/etc/kolla/config/nova/ceph.client.cinder.keyring
+scp -r /etc/ceph/ceph.client.glance.keyring root@172.16.200.26:/etc/kolla/config/glance/ceph.client.glance.keyring
+scp -r /etc/ceph/ceph.client.cinder-backup.keyring  root@172.16.200.26:/etc/kolla/config/cinder/cinder-backup/ceph.client.cinder-backup.keyring 
+scp -r /etc/ceph/ceph.client.cinder.keyring  root@172.16.200.26:/etc/kolla/config/cinder/cinder-backup/ceph.client.cinder.keyring
+scp -r /etc/ceph/ceph.client.cinder.keyring  root@172.16.200.26:/etc/kolla/config/cinder/cinder-volume/ceph.client.cinder.keyring
+scp -r /etc/ceph/ceph.client.cinder.keyring  root@172.16.200.26:/etc/kolla/config/nova/ceph.client.cinder.keyring
 
 
 
